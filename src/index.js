@@ -1,22 +1,17 @@
-import Fastify from `fastify`;
+import { build } from './app.js';
 
 async function start () {
-    try {
-        const fastify = Fastify({ logger: true });
+  try {
+    const fastify = await build();
 
-        fastify.get('/api', async (request,reply) => { 
-            return { success: true } 
-        });
-
-        const addr = await fastify.listen({
-            port: '8080'
-        });
-        	console.log(`Listening on ${addr}`);
-            
-    } catch (error) {
-        console.error(error);
-        process.exit(1);
-    }
+    const addr = await fastify.listen({
+      port: '8080'
+    });
+    console.log(`Listening on ${addr}`);
+  } catch (error) {
+    console.error(error);
+    process.exit(1);
+  }
 }
 
 start();
