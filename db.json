@@ -49,34 +49,27 @@
       "createdDate": 1666286932726,
       "updatedDate": 1666286932726
     },
-    "28565cbb-a63a-4ed1-b4b3-8c0b2f93ff11": {
+    "26e15531-a5bf-4696-8212-9a4e43488acf": {
+      "title": "New Todo for get",
+      "description": "Some description",
+      "isDone": false,
+      "createdDate": 1666331349242,
+      "updatedDate": 1666331349242
+    },
+    "46e43465-b94b-47ab-970e-611d6036cc00": {
       "title": "New Todo",
       "description": "Some description",
       "isDone": false,
-      "createdDate": 1666288197615,
-      "updatedDate": 1666288197615
+      "createdDate": 1666331349325,
+      "updatedDate": 1666331349325
     },
-    "42cdadc5-fd72-473f-89d4-10723e4648e2": {
+    "39b6c063-cd1c-48bf-860a-8bf47df9f0e0": {
       "title": "New Todo 2",
       "description": "Some description 2",
       "isDone": true,
-      "createdDate": 1666288197690,
-      "updatedDate": 1666288197690
-    },
-    "e91838f0-34a3-4dd4-9b2e-380291c6894e": {
-      "title": "New Todo",
-      "description": "Some description",
-      "isDone": false,
-      "createdDate": 1666329670134,
-      "updatedDate": 1666329670134
-    },
-    "3cf069fd-5524-4cfa-a574-cb42580af89f": {
-      "title": "New Todo 2",
-      "description": "Some description 2",
-      "isDone": true,
-      "createdDate": 1666329670206,
-      "updatedDate": 1666329670206
+      "createdDate": 1666331349414,
+      "updatedDate": 1666331349414
     }
   },
-  "test": 1666329669335
+  "test": 1666331347638
 }
