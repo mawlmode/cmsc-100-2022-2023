@@ -23,7 +23,7 @@ export async function build () {
   const openAPIGlueOptions = {
     specification,
     service,
-    prefix 
+    prefix
   };
 
   const swaggerOptions = {
