@@ -62,7 +62,7 @@ describe('Get many todo should work', async () => {
     response.statusCode.must.be.equal(200);
 
     cookie = response.headers['set-cookie'];
-  })
+  });
 
   it('Should return a list of objects with default', async () => {
     const response = await app.inject({

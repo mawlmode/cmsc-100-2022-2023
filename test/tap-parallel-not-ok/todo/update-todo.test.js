@@ -63,7 +63,7 @@ describe('Update a todo should work', async () => {
     response.statusCode.must.be.equal(200);
 
     cookie = response.headers['set-cookie'];
-  })
+  });
 
   it('Should update the object given an ID', async () => {
     const newTodo = {

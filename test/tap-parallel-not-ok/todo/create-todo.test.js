@@ -27,7 +27,7 @@ describe('Creating a todo should work', async () => {
     });
   });
 
-  it ('Should return the user that was created a new user', async () => {
+  it('Should return the user that was created a new user', async () => {
     const response = await app.inject({
       method: 'POST',
       url: `${prefix}/register`,
