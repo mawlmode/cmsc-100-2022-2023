@@ -4,14 +4,14 @@ export const updateTodo = async (request, reply) => {
   const { params, body, username } = request;
   const { todoId: id } = params;
   const { title, description, isDone = null } = body;
-  
-  if(!username) {
+
+  if (!username) {
     return reply.badRequest();
   }
-  
+
   const db = await getDB();
 
-  if(db.todos[id].username !== username) {
+  if (db.todos[id].username !== username) {
     return reply.forbidden('You are not the owner of the todo');
   }
 

@@ -8,7 +8,7 @@ export const createTodo = async (request, reply) => {
 
   const id = v4();
 
-  if(!username) {
+  if (!username) {
     return reply.badRequest();
   }
 

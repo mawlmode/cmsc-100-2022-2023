@@ -5,7 +5,7 @@ export const getTodo = async (request, reply) => {
   const { todoId: id } = params;
   const db = await getDB();
 
-  if(!username) {
+  if (!username) {
     return reply.badRequest();
   }
 
@@ -15,7 +15,7 @@ export const getTodo = async (request, reply) => {
     return reply.notFound();
   }
 
-  if(todos[id].username !== username) {
+  if (todos[id].username !== username) {
     return reply.forbidden('You are not the owner of the todo');
   }
 

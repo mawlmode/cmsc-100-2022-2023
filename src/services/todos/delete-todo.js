@@ -5,11 +5,11 @@ export const deleteTodo = async (request, reply) => {
   const { todoId: id } = params;
   const db = await getDB();
 
-  if(!username) {
+  if (!username) {
     return reply.badRequest();
   }
 
-  if(db.todos[id].username !== username) {
+  if (db.todos[id].username !== username) {
     return reply.forbidden('You are not the owner of the todo');
   }
 
