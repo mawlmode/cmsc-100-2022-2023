@@ -5,7 +5,7 @@ export const getManyTodo = async (request, reply) => {
   const { limit = 5 } = query;
   const db = await getDB();
 
-  if(!username) {
+  if (!username) {
     return reply.badRequest();
   }
 
@@ -21,7 +21,8 @@ export const getManyTodo = async (request, reply) => {
     })
     .sort(function (todo1, todo2) {
       return todo2.createdDate - todo1.createdDate;
-    });
+    })
+    .filter((todo) => (username === todo.username));
 
   for (const todo of todos) {
     list.push(todo);
@@ -30,5 +31,5 @@ export const getManyTodo = async (request, reply) => {
     }
   }
 
-  return list.filter((todo) => (username === todo.username));
+  return list;
 };
