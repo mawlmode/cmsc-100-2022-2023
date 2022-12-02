@@ -3,13 +3,13 @@ import { build } from '../../../src/app.js';
 import 'must/register.js';
 import Chance from 'chance';
 
-const chance = new Chance();
+const Chance = new Chance();
 
 tap.mochaGlobals();
 
 const prefix = '/api';
 
-describe('Logging out a user should work', async () => {
+describe('Get a todo should work', async () => {
   let app;
 
   before(async () => {
@@ -27,12 +27,12 @@ describe('Logging out a user should work', async () => {
 
   let cookie = '';
 
-  it('Should return the user that was created with a new user', async () => {
+  it('Should return the user that was created a new user', async () => {
     const response = await app.inject({
       method: 'POST',
       url: `${prefix}/register`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
       },
       body: JSON.stringify(newUser)
     });
@@ -44,6 +44,7 @@ describe('Logging out a user should work', async () => {
     result.username.must.be.equal(newUser.username);
     result.firstName.must.be.equal(newUser.firstName);
     result.lastName.must.be.equal(newUser.lastName);
+
     result.createdDate.must.not.be.null();
     result.updatedDate.must.not.be.null();
   });
@@ -53,7 +54,7 @@ describe('Logging out a user should work', async () => {
       method: 'POST',
       url: `${prefix}/login`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
       },
       body: JSON.stringify({
         username: newUser.username,
@@ -66,29 +67,42 @@ describe('Logging out a user should work', async () => {
     cookie = response.headers['set-cookie'];
   });
 
-  it('Logout should work', async () => {
-    const response = await app.inject({
-      method: 'GET',
-      url: `${prefix}/logout`,
+  it('Should return the object given an ID', async () => {
+    const newTodo = {
+      title: 'New Todo for get',
+      description: 'Some description'
+    };
+
+    const createResponse = await app.inject({
+      method: 'POST',
+      url: `${prefix}/todo`,
       headers: {
         'Content-Type': 'application/json',
         cookie
-      }
+      },
+      body: JSON.stringify(newTodo)
+    });
+
+    const { id } = await createResponse.json();
+
+    const response = await app.inject({
+      method: 'GET',
+      headers: {
+        cookie
+      },
+      url: `${prefix}/todo/${id}`
     });
 
     response.statusCode.must.be.equal(200);
-  });
 
-  it('Logout should return an error without a cookie', async () => {
-    const response = await app.inject({
-      method: 'GET',
-      url: `${prefix}/logout`,
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
+    const result = await response.json();
 
-    response.statusCode.must.be.equal(401);
+    result.id.must.be.equal(id);
+    result.title.must.be.equal(newTodo.title);
+    result.description.must.be.equal(newTodo.description);
+    result.isDone.must.be.false();
+    result.createdDate.must.not.be.null();
+    result.updatedDate.must.not.be.null();
   });
 
   after(async () => {

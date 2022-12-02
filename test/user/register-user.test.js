@@ -1,5 +1,5 @@
 import tap from 'tap';
-import { build } from '../../src/app.js';
+import { build } from '../../../src/app.js';
 import 'must/register.js';
 import Chance from 'chance';
 
@@ -13,7 +13,9 @@ describe('Register a user should work', async () => {
   let app;
 
   before(async () => {
-    app = await build();
+    app = await build({
+      forceCloseConnections: true
+    });
   });
 
   const newUser = {
@@ -55,5 +57,9 @@ describe('Register a user should work', async () => {
     });
 
     response.statusCode.must.be.equal(400);
+  });
+
+  after(async () => {
+    await app.close();
   });
 });

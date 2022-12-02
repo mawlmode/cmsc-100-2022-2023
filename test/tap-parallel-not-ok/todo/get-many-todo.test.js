@@ -3,13 +3,13 @@ import { build } from '../../../src/app.js';
 import 'must/register.js';
 import Chance from 'chance';
 
-const chance = new Chance();
+const Chance = new Chance();
 
 tap.mochaGlobals();
 
 const prefix = '/api';
 
-describe('Logging out a user should work', async () => {
+describe('Get many todo should work', async () => {
   let app;
 
   before(async () => {
@@ -27,12 +27,12 @@ describe('Logging out a user should work', async () => {
 
   let cookie = '';
 
-  it('Should return the user that was created with a new user', async () => {
+  it('Should return the user that was created a new user', async () => {
     const response = await app.inject({
       method: 'POST',
       url: `${prefix}/register`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
       },
       body: JSON.stringify(newUser)
     });
@@ -44,8 +44,6 @@ describe('Logging out a user should work', async () => {
     result.username.must.be.equal(newUser.username);
     result.firstName.must.be.equal(newUser.firstName);
     result.lastName.must.be.equal(newUser.lastName);
-    result.createdDate.must.not.be.null();
-    result.updatedDate.must.not.be.null();
   });
 
   it('Login should work', async () => {
@@ -53,7 +51,7 @@ describe('Logging out a user should work', async () => {
       method: 'POST',
       url: `${prefix}/login`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-type': 'application/json'
       },
       body: JSON.stringify({
         username: newUser.username,
@@ -64,31 +62,38 @@ describe('Logging out a user should work', async () => {
     response.statusCode.must.be.equal(200);
 
     cookie = response.headers['set-cookie'];
-  });
+  })
 
-  it('Logout should work', async () => {
+  it('Should return a list of objects with default', async () => {
     const response = await app.inject({
       method: 'GET',
-      url: `${prefix}/logout`,
       headers: {
-        'Content-Type': 'application/json',
         cookie
-      }
+      },
+      url: `${prefix}/todo`
     });
 
     response.statusCode.must.be.equal(200);
+
+    const result = await response.json();
+
+    result.length.must.not.be.above(5);
   });
 
-  it('Logout should return an error without a cookie', async () => {
+  it('Should return a list of objects with default', async () => {
     const response = await app.inject({
       method: 'GET',
-      url: `${prefix}/logout`,
       headers: {
-        'Content-Type': 'application/json'
-      }
+        cookie
+      },
+      url: `${prefix}/todo?limit=2`
     });
 
-    response.statusCode.must.be.equal(401);
+    response.statusCode.must.be.equal(200);
+
+    const result = await response.json();
+
+    result.length.must.not.be.above(2);
   });
 
   after(async () => {
