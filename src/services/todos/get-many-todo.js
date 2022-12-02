@@ -1,9 +1,13 @@
 import { getDB } from '../../utils/db/index.js';
 
 export const getManyTodo = async (request, reply) => {
-  const { query } = request;
+  const { query, username } = request;
   const { limit = 5 } = query;
   const db = await getDB();
+
+  if(!username) {
+    return reply.badRequest();
+  }
 
   const list = [];
 
@@ -26,5 +30,5 @@ export const getManyTodo = async (request, reply) => {
     }
   }
 
-  return list;
+  return list.filter((todo) => (username === todo.username));
 };
