@@ -21,7 +21,9 @@ export const todo = {
         }
       },
       security: [
-        {}
+        {
+          cookieAuth: []
+        }
       ]
     },
     put: {
@@ -33,7 +35,7 @@ export const todo = {
         }
       ],
       requestBody: {
-        description: 'THe request body for todo',
+        description: 'The request body for todo',
         content: {
           'application/json': {
             schema: {
@@ -56,7 +58,9 @@ export const todo = {
         }
       },
       security: [
-        {}
+        {
+          cookieAuth: []
+        }
       ]
     },
     delete: {
@@ -85,7 +89,9 @@ export const todo = {
         }
       },
       security: [
-        {}
+        {
+          cookieAuth: []
+        }
       ]
     }
   },
@@ -94,7 +100,7 @@ export const todo = {
       summary: 'Create a todo',
       operationId: 'createTodo',
       requestBody: {
-        description: 'THe request body for todo',
+        description: 'The request body for todo',
         content: {
           'application/json': {
             schema: {
@@ -117,7 +123,9 @@ export const todo = {
         }
       },
       security: [
-        {}
+        {
+          cookieAuth: []
+        }
       ]
     },
     get: {
@@ -149,7 +157,9 @@ export const todo = {
         }
       },
       security: [
-        {}
+        {
+          cookieAuth: []
+        }
       ]
     }
   }
