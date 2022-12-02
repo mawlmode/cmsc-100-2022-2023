@@ -3,7 +3,7 @@ import { build } from '../../../src/app.js';
 import 'must/register.js';
 import Chance from 'chance';
 
-const Chance = new Chance();
+const chance = new Chance();
 
 tap.mochaGlobals();
 
