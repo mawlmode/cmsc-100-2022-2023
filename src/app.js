@@ -5,6 +5,7 @@ import swagger from '@fastify/swagger';
 import cookie from '@fastify/cookie';
 import session from '@fastify/secure-session';
 import jwt from '@fastify/jwt';
+import stat from '@fastify/static';
 import { Service } from './services/index.js';
 import { Security } from './security/index.js';
 import { specification } from './specification/index.js';
@@ -53,20 +54,19 @@ export async function build () {
     exposeRoute: true
   };
 
+  fastify.setNotFoundHandler(function (_request,reply) {
+    reply.statusCode = 200;
+
+    reply.sendFile('index.html');
+  });
+
+  fastify.register(stat, {
+    root: `${process.cwd()}/src/public`,
+    preCompressed: true
+  });
+
   fastify.register(swagger, swaggerOptions);
   fastify.register(openAPIGlue, openAPIGlueOptions);
-
-  // fastify.get(prefix, general);
-
-  // fastify.post(`${prefix}/todo`, createTodo);
-
-  // fastify.get(`${prefix}/todo`, getManyTodo);
-
-  // fastify.get(`${prefix}/todo/:todoId`, getTodo);
-
-  // fastify.put(`${prefix}/todo/:todoId`, updateTodo);
-
-  // fastify.delete(`${prefix}/todo/:todoId`, deleteTodo);
 
   return fastify;
 }
