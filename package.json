@@ -9,7 +9,10 @@
     "nodemon": "nodemon src/index --ignore db.json",
     "semistandard": "semistandard --fix",
     "tap": "c8 --lines 80 --functions 80 --branches 80 --statements 80 --check-coverage --per-file tap test/**/*.test.js test/**/**/*.test.js --no-coverage",
-    "test": "npm run semistandard && npm run tap"
+    "test": "npm run semistandard && npm run tap",
+    "webpack": "npx webpack -c webpack.dev.cjs  --watch",
+    "webpack:build": "npx webpack -c webpack.dev.cjs",
+    "webpack:build:production": "npx webpack -c webpack.prod.cjs"
   },
   "repository": {
     "type": "git",
@@ -89,7 +92,7 @@
     "comlink": "^4.3.1",
     "fastify": "^4.8.1",
     "fastify-openapi-glue": "^4.1.1",
-    "lit": "^2.4.1",
+    "lit": "^2.5.0",
     "uuid": "^9.0.0"
   }
 }
