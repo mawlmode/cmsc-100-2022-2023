@@ -9,19 +9,19 @@ import { template } from './template.js';
  */
 @customElement('page-logout')
 class Page extends LitPage {
-    async connectedCallback () {
-        super.connectedCallback();
+  async connectedCallback () {
+    super.connectedCallback();
 
-        //regardless if it fails or not on the backend, we should logout
-        await window.fetch('/api/logout');
+    // regardless if it fails or not on the backend, we should logout
+    await window.fetch('/api/logout');
 
-        state.set('user-is-logged-in', false);
-        changeUrl('/login');
-    }
-    
-    render () {
-        return template.bind(this)();
-    }
+    state.set('user-is-logged-in', false);
+    changeUrl('/login');
+  }
+
+  render () {
+    return template.bind(this)();
+  }
 }
 
 export { Page };

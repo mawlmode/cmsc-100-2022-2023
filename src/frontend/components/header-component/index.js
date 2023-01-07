@@ -13,31 +13,31 @@ class Component extends LitNoShadow {
     loggedIn = false
 
     render () {
-        return template.bind(this)();
+      return template.bind(this)();
     }
 
     constructor () {
-        super();
-        //this ensures that we have set the scope of the function to this element
+      super();
+      // this ensures that we have set the scope of the function to this element
 
-        this.boundSetLoggedIn = this.setLoggedIn.bind(this);
+      this.boundSetLoggedIn = this.setLoggedIn.bind(this);
     }
 
     async connectedCallback () {
-        super.connectedCallback();
-        //this subscribes the function to listen when value on user-is-logged-in changes
-        await state.subscribe('user-is-logged-in', 'header-component-user-is-logged-in', proxy(this.boundSetLoggedIn));
+      super.connectedCallback();
+      // this subscribes the function to listen when value on user-is-logged-in changes
+      await state.subscribe('user-is-logged-in', 'header-component-user-is-logged-in', proxy(this.boundSetLoggedIn));
 
-        this.loggedIn = await state.get('user-is-logged-in');
+      this.loggedIn = await state.get('user-is-logged-in');
     }
 
     async disconnectedCallback () {
-        //this unsubscribes the function when this component is deleted
-        await state.unsubscribe('user-is-logged-in', 'header-component-user-is-logged-in');
+      // this unsubscribes the function when this component is deleted
+      await state.unsubscribe('user-is-logged-in', 'header-component-user-is-logged-in');
     }
 
     setLoggedIn (value) {
-        this.loggedIn = value;
+      this.loggedIn = value;
     }
 }
 

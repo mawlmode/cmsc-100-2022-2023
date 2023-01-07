@@ -1,7 +1,7 @@
 import { html } from 'lit';
 
 export function template () {
-    return html`
+  return html`
         <style>
             .todo-create-form {
                 display: block;

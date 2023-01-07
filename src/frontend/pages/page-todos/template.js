@@ -2,7 +2,7 @@ import { html } from 'lit';
 import '../../components/todo-component/index.js';
 
 export function template () {
-    return html`
+  return html`
     <style>
         .todo {
             display: flex;
@@ -19,7 +19,7 @@ export function template () {
     </h2>
 
     ${this.errorMessage
-        //if this is an errorMessage
+        // if this is an errorMessage
         ? html`
             <div class="flex-group">
                 ${this.errorMessage}

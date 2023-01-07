@@ -54,7 +54,7 @@ export async function build () {
     exposeRoute: true
   };
 
-  fastify.setNotFoundHandler(function (_request,reply) {
+  fastify.setNotFoundHandler(function (_request, reply) {
     reply.statusCode = 200;
 
     reply.sendFile('index.html');

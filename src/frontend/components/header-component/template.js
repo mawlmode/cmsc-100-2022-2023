@@ -1,7 +1,7 @@
 import { html } from 'lit';
 
 export function template () {
-    return html`<header>
+  return html`<header>
     <h1>
         Todo App
     </h1>

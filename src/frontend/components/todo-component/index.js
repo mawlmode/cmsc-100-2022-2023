@@ -11,21 +11,21 @@ class Page extends LitNoShadow {
     todo = null
 
     render () {
-        return template.bind(this)();
+      return template.bind(this)();
     }
 
     async submitTodo (event) {
-        event.preventDefault();
+      event.preventDefault();
 
-        const { target: form } = event;
+      const { target: form } = event;
 
-        const detail = {
-            title: form.title.value,
-            description: form.description.value,
-            isDone: form.isDone.checked || false
-        };
+      const detail = {
+        title: form.title.value,
+        description: form.description.value,
+        isDone: form.isDone.checked || false
+      };
 
-        this.dispatchEvent(new window.CustomEvent('submit-todo', { detail }));
+      this.dispatchEvent(new window.CustomEvent('submit-todo', { detail }));
     }
 }
 

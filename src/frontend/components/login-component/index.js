@@ -13,41 +13,41 @@ class Component extends LitNoShadow {
     errorMessage = ''
 
     render () {
-        return template.bind(this)();
+      return template.bind(this)();
     }
 
-    //this is called when submit button is clicked
+    // this is called when submit button is clicked
     async login (event) {
-        //this prevents the page from using the default behavior of submit
-        event.preventDefault();
+      // this prevents the page from using the default behavior of submit
+      event.preventDefault();
 
-        //gets the event.target and change the variable name to form
-        const { target: form } = event;
+      // gets the event.target and change the variable name to form
+      const { target: form } = event;
 
-        const username = form.username.value;
-        const password = form.password.value;
+      const username = form.username.value;
+      const password = form.password.value;
 
-        //calls an API call
-        const response = await window.fetch('/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username,
-                password
-            })
-        });
+      // calls an API call
+      const response = await window.fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username,
+          password
+        })
+      });
 
-        if (response.status === 200) {
-            this.errorMessage = '';
-            await state.set('user-is-logged-in', true);
-            return changeUrl('/todos');
-        }
+      if (response.status === 200) {
+        this.errorMessage = '';
+        await state.set('user-is-logged-in', true);
+        return changeUrl('/todos');
+      }
 
-        const { message, error } = await response.json();
-        this.errorMessage = `HTTP Code: ${response.status} - ${error} - ${message}`;
-        await state.set('user-is-logged-in', false);
+      const { message, error } = await response.json();
+      this.errorMessage = `HTTP Code: ${response.status} - ${error} - ${message}`;
+      await state.set('user-is-logged-in', false);
     }
 }
 

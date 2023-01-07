@@ -1,4 +1,4 @@
-import { customElement } from "lit/decorators.js";
+import { customElement } from 'lit/decorators.js';
 import { LitPage } from '../../utils/lit-page/index.js';
 import { template } from './template.js';
 
@@ -7,9 +7,9 @@ import { template } from './template.js';
  */
 @customElement('page-home')
 class Page extends LitPage {
-    render () {
-        return template.bind(this)();
-    }
+  render () {
+    return template.bind(this)();
+  }
 }
 
 export { Page };
