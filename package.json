@@ -93,6 +93,7 @@
     "fastify": "^4.8.1",
     "fastify-openapi-glue": "^4.1.1",
     "lit": "^2.5.0",
+    "small-router": "^1.2.2",
     "uuid": "^9.0.0"
   }
 }
