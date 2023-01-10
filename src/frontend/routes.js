@@ -39,7 +39,7 @@ export const routes = {
     // runs all scripts, if any one of the functions in the list fails
     preRender: [
       redirectIfLoggedOut,
-      () => import('./pages/page-login/index.js')
+      () => import('./pages/page-todos/index.js')
     ]
   },
   '/todos/:id': {
