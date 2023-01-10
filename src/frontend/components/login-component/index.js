@@ -42,7 +42,7 @@ class Component extends LitNoShadow {
       if (response.status === 200) {
         this.errorMessage = '';
         await state.set('user-is-logged-in', true);
-        return changeUrl('/todos');
+        return changeUrl('/todo');
       }
 
       const { message, error } = await response.json();

@@ -29,7 +29,7 @@ export function template () {
     <div class="todo-list">
         ${this.todos.map(todo => html`
             <div class="todo">
-                <a href="/todos/${todo.id}">
+                <a href="/todo/${todo.id}">
                     ${todo.title}
                 </a>
                 <p>
