@@ -41,7 +41,7 @@ class Page extends LitPage {
         if (response.status !== 200) {
           return this.setErrorMessage(await response.json(), response.status);
         } else {
-          await response.json();
+          this.todo = await response.json();
         }
       } catch (error) {
         return this.setErrorMessage(error, 404);
