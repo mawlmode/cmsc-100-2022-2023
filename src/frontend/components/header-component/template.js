@@ -4,7 +4,7 @@ export function template () {
   return html`<header>
     <h1>
     <a href="/">
-        Todo App
+        two doe
     </a>
     </h1>
 
@@ -12,12 +12,16 @@ export function template () {
     ${this.loggedIn
         ? html`
             <a href="/logout">
-                Logout
+                logout
             </a>
         `
         : html`
             <a href="/login">
-                Login
+                login
+            </a>
+
+            <a href="/register">
+                register
             </a>
         `}
     </nav>

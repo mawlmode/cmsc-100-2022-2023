@@ -6,7 +6,70 @@
       "lastName": "Decuzar",
       "createdDate": 1667909702148,
       "updatedDate": 1667909702148
+    },
+    "alex123": {
+      "hashedPassword": "$2b$10$e.ym.d2MlJ2OfueMi5Qq5ewhDV/ou.nQgG6IyoiU/Hn77iQR2sg0a",
+      "firstName": "alex",
+      "lastName": "revlon",
+      "createdDate": 1673360550077,
+      "updatedDate": 1673360550077
+    },
+    "alfy456": {
+      "hashedPassword": "$2b$10$6kD0KKV3.ungWpQQ1BXfTOQj3wRWeJ6J.siZbRNG0ghrYCvYQKFde",
+      "firstName": "alfred",
+      "lastName": "santos",
+      "createdDate": 1673364161162,
+      "updatedDate": 1673364161162
     }
   },
-  "todos": {}
+  "todos": {
+    "de93db10-02fa-4818-8a50-b40fd8c92f15": {
+      "title": "grocery",
+      "description": "buy 1 bottle of shampoo and 12 cans of sardines",
+      "isDone": false,
+      "username": "alex123",
+      "createdDate": 1673360559881,
+      "updatedDate": 1673361044522
+    },
+    "992886b4-601b-4423-9434-3e32e02ccbc2": {
+      "title": "workout",
+      "description": "workout for 2 hours and 15 minutes",
+      "isDone": true,
+      "username": "alex123",
+      "createdDate": 1673360925664,
+      "updatedDate": 1673364107159
+    },
+    "4559a514-61b1-477c-9eaf-83907dac0058": {
+      "title": "date",
+      "description": "date with my bestie",
+      "isDone": true,
+      "username": "alfy456",
+      "createdDate": 1673364187361,
+      "updatedDate": 1673425934633
+    },
+    "85104761-2a75-4d36-a1e4-2feeffdaf9d4": {
+      "title": "grocery",
+      "description": "buy 1 bottle of shampoo",
+      "isDone": false,
+      "username": "alfy456",
+      "createdDate": 1673430438608,
+      "updatedDate": 1673430438608
+    },
+    "c7671070-172a-4b87-863d-bbf960393f97": {
+      "title": "sais",
+      "description": "magdasal a makaenroll",
+      "isDone": true,
+      "username": "alfy456",
+      "createdDate": 1673431591961,
+      "updatedDate": 1673431615153
+    },
+    "26190549-d5d7-43b5-a7de-264203c95498": {
+      "title": "sais",
+      "description": "magdasal a makaenroll",
+      "isDone": true,
+      "username": "alfy456",
+      "createdDate": 1673431601444,
+      "updatedDate": 1673431601444
+    }
+  }
 }
